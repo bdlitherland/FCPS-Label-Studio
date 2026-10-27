@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f0f4f8;
+    background-image: 
+      radial-gradient(at 0% 0%, #e2e8f0 0px, transparent 50%),
+      radial-gradient(at 100% 0%, #cbd5e1 0px, transparent 50%),
+      radial-gradient(at 100% 100%, #94a3b8 0px, transparent 50%),
+      radial-gradient(at 0% 100%, #cbd5e1 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #1e293b;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+@media print {
+  html, body, #root, main, .space-y-4, .glass-card {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all web app navigation, headers, footers, modal buttons & control toolbars */
+  header, footer, nav, button, select, input, .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset outer container */
+  .printable-sheet-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* Force each printable sheet page with strict break rules */
+  .printable-sheet {
+    display: flex !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+
+  .printable-sheet:not(:last-child) {
+    break-after: page !important;
+    page-break-after: page !important;
+  }
+
+  .printable-sheet:first-child {
+    break-before: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .printable-sheet:last-child {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  /* Dymo roll specific overrides allowing inline width/height from props */
+  .printable-sheet.dymo-single,
+  .printable-sheet.dymo-single-rotated {
+    padding: 0 !important;
+    margin: 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Glen Forest Label Generator",
+  "description": "Generate and print iPad sticky labels (Avery 5160), double-sided student cards (Avery 5874), and staff cards with barcodes, logos, passwords, and CSV/Drive imports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
